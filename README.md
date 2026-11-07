@@ -2,7 +2,22 @@
 
 Двухпанельный файловый менеджер для macOS с доступом к iPhone по кабелю.
 
+## Установка
+
+Нужен Mac на Apple Silicon (M1 и новее) и macOS 13 или новее.
+
+1. Скачайте [PhoneCommander.zip](https://github.com/turbopash/PhoneCommander/releases/latest/download/PhoneCommander.zip) и распакуйте.
+2. Перетащите «Phone Commander» в папку «Программы».
+3. Запустите программу. Она не подписана в Apple, поэтому macOS её заблокирует. Разрешите запуск один раз:
+   - macOS 15 и новее: закройте сообщение, откройте «Системные настройки» → «Конфиденциальность и безопасность», внизу нажмите «Всё равно открыть».
+   - macOS 14 и старше: правый клик по программе → «Открыть» → «Открыть».
+   - Если пишет, что программа повреждена, выполните в Терминале: `xattr -cr "/Applications/Phone Commander.app"`
+4. Подключите iPhone кабелем, нажмите на нём «Доверять» и введите код.
+
+Всё нужное уже внутри программы, Homebrew ставить не надо.
+
 Сборка: `brew install libimobiledevice`, затем `./build.sh`. Приложение: `build/Phone Commander.app`.
+Готовый zip для Releases: `brew install pkgconf`, затем `./release.sh`.
 Проверка на подключённом iPhone: `"build/Phone Commander.app/Contents/MacOS/PhoneCommander" --selftest`.
 
 - Tab: другая панель. Enter: открыть. Backspace: вверх. Пробел на файле: выбрать следующий. Пробел на папке: посчитать её размер.

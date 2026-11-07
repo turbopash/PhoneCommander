@@ -4,7 +4,8 @@ set -e
 cd "${0:A:h}"
 APP="build/Phone Commander.app"
 rm -rf "$APP"; mkdir -p "$APP/Contents/MacOS"
-swiftc -O -swift-version 5 -import-objc-header Sources/bridge.h -I/opt/homebrew/include -L/opt/homebrew/lib \
+PREFIX="${PC_PREFIX:-/opt/homebrew}"
+swiftc -O -swift-version 5 -target arm64-apple-macos13.0 -import-objc-header Sources/bridge.h -I"$PREFIX/include" -L"$PREFIX/lib" \
   -limobiledevice-1.0 -lplist-2.0 Sources/*.swift -o "$APP/Contents/MacOS/PhoneCommander"
 cat > "$APP/Contents/Info.plist" <<P
 <?xml version="1.0" encoding="UTF-8"?>

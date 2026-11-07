@@ -1,3 +1,5 @@
 .DS_Store
 build/
 *.app/
+dist/
+.release.log
